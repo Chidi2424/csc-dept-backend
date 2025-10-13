@@ -1,7 +1,16 @@
 const express = require("express");
-const cloudinary = require("../Utils/Cloudinary,js");
-const { TimeTableSchema } = require("../controller/TimetableController");
+const {
+  UploadTimeTableImage,
+  GetAllTimeTables,
+  GetTimeTableById,
+  DeleteTimeTable,
+} = require("../controller/TimetableController");
+
 const router = express.Router();
 
-router.post("/", TimeTableSchema);
+router.post("/", UploadTimeTableImage);
+router.get("/", GetAllTimeTables);
+router.get("/:id", GetTimeTableById);
+router.delete("/:id", DeleteTimeTable);
+
 module.exports = router;

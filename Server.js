@@ -1,10 +1,11 @@
-// ...existing code...
+// load environment variables as early as possible
 require("dotenv").config();
-const dotenv = require("dotenv").config();
-const EventRoute = require("./route/EventRoute");
-const AnnouncementRoute = require("./route/AnnouncementRoute");
+
 const express = require("express");
 const connectDB = require("./config/db");
+// require routes after dotenv so any module reading process.env sees values
+const EventRoute = require("./route/EventRoute");
+const AnnouncementRoute = require("./route/AnnouncementRoute");
 const Cloudinary = require("./Utils/Cloudinary");
 // import express from "express" this is used only when commonjs is changed to modulejs
 // import axios from axios
